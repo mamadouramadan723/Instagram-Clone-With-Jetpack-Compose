@@ -1,4 +1,4 @@
-package com.rmd.media.instacloneapp
+package com.rmd.media.instacloneapp.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import com.rmd.media.instacloneapp.R
 import com.rmd.media.instacloneapp.component.Posts
 import com.rmd.media.instacloneapp.component.Stories
 import com.rmd.media.instacloneapp.repository.PostRepository

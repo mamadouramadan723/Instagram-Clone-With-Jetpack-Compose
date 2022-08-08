@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.rmd.media.instacloneapp.screen.HomeScreen
 import com.rmd.media.instacloneapp.ui.theme.InstaCloneAppTheme
 
 class MainActivity : ComponentActivity() {
