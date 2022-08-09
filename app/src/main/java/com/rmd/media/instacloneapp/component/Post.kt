@@ -1,6 +1,5 @@
 package com.rmd.media.instacloneapp.component
 
-import android.inputmethodservice.Keyboard
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,18 +22,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
-import com.rmd.media.instacloneapp.model.Post
 import com.rmd.media.instacloneapp.R
+import com.rmd.media.instacloneapp.model.Post
 
 @Composable
 fun PostColumnItem(post: Post) {
     val context = LocalContext.current
-    val like: String = when (post.likesCount) {
-        0 -> ""
-        1 -> "Like"
-        else -> "Likes"
+    val like: String = when {
+        post.likesCount == 1 -> "1 Like"
+        post.likesCount > 1 -> "${post.likesCount} Likes"
+        else -> {
+            ""
+        }
     }
-
 
     //Owner Image Profile + More Button
     Row(modifier = Modifier.wrapContentWidth()) {
@@ -44,7 +44,7 @@ fun PostColumnItem(post: Post) {
             painter = rememberAsyncImagePainter(
                 model = ImageRequest
                     .Builder(context)
-                    .crossfade(true)
+                    .crossfade(enable = true)
                     .data(post.user.imgUrl)
                     .build(),
                 filterQuality = FilterQuality.High
@@ -148,7 +148,7 @@ fun PostColumnItem(post: Post) {
             )
         }
     }
-    Text(text = "${post.likesCount} $like", color = Color.White, fontSize = 12.sp)
+    Text(text = like, color = Color.White, fontSize = 12.sp)
     Row() {
         Text(
             text = post.user.name,
